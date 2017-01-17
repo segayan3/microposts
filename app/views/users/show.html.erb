@@ -1,4 +1,30 @@
 <h1>
   <%= gravatar_for @user %>
-  <%= @user.name %>
+  <%= @user.name %><br>
 </h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>name</th>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th>email</th>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th>profile</th>
+            <td><%= @user.profile %></td>
+          </tr>
+          <tr>
+            <th>region</th>
+            <td><%= @user.region %></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="<%= edit_user_path %>">変更する</a>
+    </div>
+</div>
