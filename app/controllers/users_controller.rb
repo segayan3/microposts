@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update]
-  before_action :login_check, only: [:edit]
-  
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
@@ -21,32 +18,8 @@ class UsersController < ApplicationController
     end
   end
   
-  def edit
-  end
-  
-  def update
-    if @user.update(user_params)
-      # 保存に成功したらプロフィールページにリダイレクト
-      redirect_to user_path, notice: 'プロフィールを編集しました'
-    else
-      # 保存に失敗した場合は編集画面に戻る
-      render 'edit'
-    end
-  end
-  
   private
   def user_params
-    params.require(:user).permit(:name, :email, :profile, :region, :password, :password_confirmation)
-  end
-  
-  def set_user
-    @user = User.find(params[:id])
-  end
-  
-  def login_check
-    @user = User.find(params[:id])
-    if @user != current_user
-      redirect_to root_path, notice: "他の方のプロフィールは編集できません"
-    end
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
