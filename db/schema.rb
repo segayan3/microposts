@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20170119015353) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "profile"
+    t.string   "region"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "profile"
-    t.string   "region"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
