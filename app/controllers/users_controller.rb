@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update]
+  before_action :login_check, only: [:edit]
+  
   def show
     @user = User.find(params[:id])
   end
@@ -19,7 +21,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
@@ -39,5 +40,12 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def login_check
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to root_path, notice: "他の方のプロフィールは編集できません"
+    end
   end
 end

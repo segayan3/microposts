@@ -25,6 +25,8 @@
           </tr>
         </tbody>
       </table>
-      <a href="<%= edit_user_path %>">変更する</a>
+      <% if @user == current_user %>
+        <a href="<%= edit_user_path %>">変更する</a>
+      <% end %>
     </div>
 </div>
