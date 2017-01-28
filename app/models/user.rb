@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX},
                     uniqueness: { case_sensitive: false } # case_sensitiveは大文字小文字の区別をするかどうか
-  validates :profile, presence: true, length: { maximum: 150 }
+  # validates :profile, absence: true, on: :create
+  validates :profile, allow_blank: true, length: { minimum: 3, maximum: 150 }
   has_secure_password
   
   # あるuserがfollowしている人の一覧
