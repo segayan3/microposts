@@ -2,12 +2,12 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create]
   
   def create
-    @microposts = current_user.microposts.build(micropost_params)
-    if @microposts.save
+    @micropost = current_user.microposts.build(micropost_params)
+    if @micropost.save
       flash[:succes] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items = current_user.feed_items.includes(:user).order(created_ad: :desc)
+      #@feed_items = current_user.feed_items.includes(:user).order(created_ad: :desc)
       render 'static_pages/home'
     end
   end
