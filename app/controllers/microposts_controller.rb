@@ -24,7 +24,7 @@ class MicropostsController < ApplicationController
     original_micropost = Micropost.find(params[:id])
     retweet = current_user.microposts.build
     retweet.original_id = original_micropost.id
-    retweet.content = original_micropost.content
+    retweet.content = "#{original_micropost.user.name}さんのツイート : #{original_micropost.content}"
     
     if retweet.save
       flash[:succes] = "ReTweet created!"
