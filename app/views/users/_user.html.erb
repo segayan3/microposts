@@ -1,5 +1,6 @@
 <div class="row">
-  <li>
+  <ol>
+    <%= link_to gravatar_for(user, size: 30), user %>
     <%= link_to user.name, user_path(user) %>
-  </li>
+  </ol>
 </div>
