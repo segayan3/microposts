@@ -20,4 +20,10 @@ Rails.application.routes.draw do
       get 'followers'
     end
   end
+  
+  resources :microposts do
+    member do
+      post 'reTweet'
+    end
+  end
 end
