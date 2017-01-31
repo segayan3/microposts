@@ -5,8 +5,10 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_info' %>
-    <%= render 'follow_form' if logged_in? %>
+    <% if logged_in? %>
+      <%= render 'follow_and_favorite_info' %>
+      <%= render 'follow_form' %>
+    <% end %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <%= paginate @microposts %>

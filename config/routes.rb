@@ -26,4 +26,11 @@ Rails.application.routes.draw do
       post 'reTweet'
     end
   end
+  
+  resources :microposts do
+    member do
+      post 'like', to: 'favorites#create'
+      get 'favorites', to: 'favorites#favorites'
+    end
+  end
 end
