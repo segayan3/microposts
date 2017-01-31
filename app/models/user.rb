@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
   has_many :follower_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
   
-  has_many :favorites
-  has_many :microposts, through: :favorites
+  has_many :favorites, foreign_key: 'user_id', dependent: :destroy
+  has_many :favorite_microposts, through: :favorites, source: :micropost
   
   # 他のユーザーをフォローする
   def follow(other_user)

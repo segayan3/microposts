@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   
   def favorites
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+    @microposts = @user.favorite_microposts
     render 'favorites'
   end
 end
