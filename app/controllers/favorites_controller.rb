@@ -10,9 +10,21 @@ class FavoritesController < ApplicationController
     end
   end
   
-  def favorites
-    @user = User.find(params[:id])
-    @microposts = @user.favorite_microposts
-    render 'favorites'
+  #def favorites
+    #@user = User.find(params[:id])
+    #@microposts = @user.favorite_microposts
+    #render 'favorites'
+  #end
+  
+  def create
+    @micropost = Micropost.find(params[:micropost_id])
+    current_user.favorite(@micropost)
+    #redirect_to :back
+  end
+
+  def destroy
+    @micropost = Micropost.find(params[:micropost_id])
+    current_user.unfavorite(@micropost)
+    #redirect_to :back
   end
 end

@@ -48,6 +48,14 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def favorites
+    @user = User.find(params[:id])
+    @title = 'Favorites'
+    @count = @user.favorite_microposts.count
+    @microposts = @user.favorite_microposts
+    render 'favorites/favorites'
+  end
+  
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

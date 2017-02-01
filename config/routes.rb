@@ -6,31 +6,20 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, :microposts
   resources :relationships, only: [:create, :destroy]
   
   resources :users do
     member do
-      get 'followings'
+      get :followings, :followers, :favorites
     end
   end
-  
-  resources :users do
-    member do
-      get 'followers'
-    end
-  end
-  
+
   resources :microposts do
     member do
       post 'reTweet'
+      # post 'like', to: 'favorites#create'
+      # get 'favorites', to: 'favorites#favorites'
     end
-  end
-  
-  resources :microposts do
-    member do
-      post 'like', to: 'favorites#create'
-      get 'favorites', to: 'favorites#favorites'
-    end
+    resource :favorites, only: [:create, :destroy]
   end
 end
