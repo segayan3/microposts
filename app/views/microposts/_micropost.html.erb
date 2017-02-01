@@ -3,6 +3,8 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
   <% if micropost.original_id == nil %>
+    <img src="<%= micropost.image %>">
+    <br>
     <%= micropost.content %>
   <% else %>
     <%= link_to micropost.content %>

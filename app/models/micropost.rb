@@ -9,6 +9,8 @@ class Micropost < ActiveRecord::Base
   has_many :favorites, foreign_key: 'micropost_id', dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   
+  mount_uploader :image, ImageUploader
+  
   def favorite?(user)
     favorite_users.include?(user)
   end
