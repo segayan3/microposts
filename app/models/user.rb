@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
   
   def unfavorite(micropost)
-    favorite_micropost = favorite_microposts.find_by(micropost_id: micropost.id)
+    favorite_micropost = favorites.find_by(micropost_id: micropost.id)
     favorite_micropost.destroy if favorite_micropost
   end
   
