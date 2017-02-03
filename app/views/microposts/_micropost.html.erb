@@ -5,10 +5,11 @@
   <% if micropost.original_id == nil %>
     <%= micropost.content %>
     <br>
-    <img src="<%= micropost.image %>">
-    <video src="<%= micropost.video %>"></video>
+    <%= render 'microposts/picture_and_movie', micropost: micropost %>
   <% else %>
     <%= link_to micropost.content %>
+    <br>
+    <%= render 'microposts/picture_and_movie', micropost: micropost %>
   <% end %>
   <br>
   </span>

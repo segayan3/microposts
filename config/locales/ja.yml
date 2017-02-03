@@ -1,5 +1,20 @@
----
 ja:
+  sessions:
+    new:
+      email: メールアドレス
+      password: パスワード
+      submit: サインイン
+      new_user: 新規ユーザー？
+      sign_up_now: ユーザー登録
+  users:
+    new:
+      name: 名前
+      email: メールアドレス
+      profile: プロフィール
+      region: 場所
+      password: パスワード
+      password_confirmation: パスワード確認
+      submit: 会員登録する
   activerecord:
     models:
       user: ユーザー
@@ -238,7 +253,3 @@ ja:
       last: 最後へ
       previous: 前へ
       next: 次へ
-    users:
-      new:
-        label:
-          email: メールアドレス
