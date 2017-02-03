@@ -30,6 +30,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+gem 'cloudinary'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
